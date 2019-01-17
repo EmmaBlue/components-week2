@@ -4,13 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Document</title>
 </head>
 <body>
     <main>
+        <h2>User Data for My App</h2>
+        <hr>
+        <article>
+            <p>
+                lorem ipsum
+            </p>
+            <p>
+                    lorem ipsum
+                </p>
+        </article>
         <div id="app">
-            
+            <activeusers name="Trevor" role="I confuse people" @shoutup="calledOnParent">
+                <h4>Active User Data</h4>
+            </activeusers>
+            <activeusers name="Justin" role="I try to boss people">
+                    <h4>Active User Data</h4>
+                </activeusers>
         </div>
     </main>
+    <!-- component templates-->
+    <template id="userstemplate">
+        <div>
+            <slot></slot>
+            <h4>User Data:</h4>
+            <p>{{name}}</p>
+            <p>{{role}}</p>
+            <hr>
+            <button v-on:click="logFromChild">Hi</button>
+            <button v-on:click="passEvent">Run a main viewmodel function</button>
+        </div>
+    </template>
+    <script src="js/main.js"></script>
 </body>
 </html>
